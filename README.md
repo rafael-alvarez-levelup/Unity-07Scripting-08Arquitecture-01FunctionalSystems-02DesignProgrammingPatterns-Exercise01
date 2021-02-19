@@ -4,7 +4,7 @@
 
 **Descripción:**
 
-![](http://git.azuritetechs.com:82/learning/programming/unity/scripting/08-arquitecture/01-functional-systems/02-design-programming-patterns/exercise-01/-/raw/master/readme_resources/screenshot.png "Mock up")
+![](https://raw.githubusercontent.com/chloroplastgames/Unity-07Scripting-08Arquitecture-01FunctionalSystems-02DesignProgrammingPatterns-Exercise01/master/readme_resources/screenshot.png "Mock up")
 
 Desarrollo de un videojuego infinito por turnos para un jugador en el que el jugador se enfrenta a un enemigo por combate y cada combate supone un nivel del juego.
 
