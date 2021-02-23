@@ -4,6 +4,6 @@ public class HealBehaviour : MonoBehaviour, IHealable
 {
     public void Heal()
     {
-        // TODO
+        print($"Heal {gameObject}");
     }
 }

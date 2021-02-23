@@ -4,6 +4,6 @@ public class DefendBehaviour : MonoBehaviour, IDefendable
 {
     public void Defend()
     {
-        // TODO
+        print($"Defend {gameObject}");
     }
 }

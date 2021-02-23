@@ -1,4 +1,4 @@
 ﻿public interface IAttack
 {
-    void Attack();
+    void Attack(IDamageable target);
 }

@@ -3,11 +3,19 @@ using UnityEngine;
 
 public class CommandManager : MonoBehaviour, ICommandProcessor
 {
-    private Stack<ICommand> commandStack;
+    private readonly Queue<ICommand> commandQueue = new Queue<ICommand>();
 
     public void Process(ICommand command)
     {
-        commandStack.Push(command);
-        command.Execute();
+        commandQueue.Enqueue(command);
+    }
+
+    public void RunNextCommand()
+    {
+        while (commandQueue.Count > 0)
+        {
+            ICommand nextCommand = commandQueue.Dequeue();
+            nextCommand.Execute();
+        }
     }
 }
