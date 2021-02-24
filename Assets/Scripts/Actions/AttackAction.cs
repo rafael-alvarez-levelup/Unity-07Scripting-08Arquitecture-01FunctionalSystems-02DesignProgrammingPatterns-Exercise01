@@ -1,7 +1,10 @@
-public class AttackAction : Action
+using UnityEngine;
+
+public class AttackAction : ActionBase
 {
-    public AttackAction(IAttack attacker, IDamageable defender)
+    public AttackAction(IAttack attacker, IDamageable target)
     {
-        command = new AttackCommand(attacker, defender);
+        sprite = Resources.Load<Sprite>("attack_normal");
+        command = new AttackCommand(attacker, target);
     }
 }

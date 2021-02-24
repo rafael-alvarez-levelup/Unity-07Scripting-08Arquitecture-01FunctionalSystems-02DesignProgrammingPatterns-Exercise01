@@ -6,6 +6,8 @@ public class AttackBehaviour : MonoBehaviour, IAttack
 
     public void Attack(IDamageable target)
     {
+        print($"{gameObject} attacks {target}!");
+
         target.TakeDamage(damage);
     }
 }

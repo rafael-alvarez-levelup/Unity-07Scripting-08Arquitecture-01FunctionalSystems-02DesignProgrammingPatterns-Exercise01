@@ -1,16 +1,16 @@
 public class AttackCommand : ICommand
 {
     private readonly IAttack attacker;
-    private readonly IDamageable defender;
+    private readonly IDamageable target;
 
-    public AttackCommand(IAttack attacker, IDamageable defender)
+    public AttackCommand(IAttack attacker, IDamageable target)
     {
         this.attacker = attacker;
-        this.defender = defender;
+        this.target = target;
     }
 
     public void Execute()
     {
-        attacker.Attack(defender);
+        attacker.Attack(target);
     }
 }
