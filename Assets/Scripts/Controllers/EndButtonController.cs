@@ -31,6 +31,6 @@ public class EndButtonController : MonoBehaviour, IResolveTurnEventHandler
             slot.ResetAction();
         }
 
-        processor.RunNextCommand();
+        processor.ExecuteCommands();
     }
 }

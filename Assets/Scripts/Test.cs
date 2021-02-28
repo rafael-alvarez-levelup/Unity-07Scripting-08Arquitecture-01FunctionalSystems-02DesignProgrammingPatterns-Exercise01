@@ -29,6 +29,6 @@ public class Test : MonoBehaviour
         processor.Process(healCommand);
         processor.Process(defendCommand);
 
-        processor.RunNextCommand();
+        processor.ExecuteCommands();
     }
 }

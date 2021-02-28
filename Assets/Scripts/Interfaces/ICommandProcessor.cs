@@ -2,5 +2,5 @@
 {
     void Process(ICommand command);
 
-    void RunNextCommand();
+    void ExecuteCommands();
 }

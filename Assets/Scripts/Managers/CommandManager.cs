@@ -10,7 +10,7 @@ public class CommandManager : MonoBehaviour, ICommandProcessor
         commandQueue.Enqueue(command);
     }
 
-    public void RunNextCommand()
+    public void ExecuteCommands()
     {
         while (commandQueue.Count > 0)
         {
