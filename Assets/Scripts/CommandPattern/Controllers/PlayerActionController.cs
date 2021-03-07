@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerActionController : MonoBehaviour, IActionController
+public class PlayerActionController : MonoBehaviour, IActionController, ICurrentAction
 {
+    // Get current action action points cost or 0 if it is the default action.
+    public int CurrentActionActionPoints => currentAction ? currentAction.ActionPoints : 0;
+
     [SerializeField] private Sprite defaultIcon;
 
     private ActionBase[] actions;
@@ -10,6 +13,7 @@ public class PlayerActionController : MonoBehaviour, IActionController
     private ISetIcon setIconBehaviour;
     private int index = 0;
     private Button button;
+    private ISubject<ActionPointsArgs> actionPointsController;
 
     private void Awake()
     {
@@ -18,6 +22,8 @@ public class PlayerActionController : MonoBehaviour, IActionController
 
         setIconBehaviour = GetComponentInChildren<ISetIcon>();
         actions = GetComponents<ActionBase>();
+
+        actionPointsController = GetComponentInParent<ISubject<ActionPointsArgs>>();
     }
 
     public void ChangeAction()
@@ -25,6 +31,8 @@ public class PlayerActionController : MonoBehaviour, IActionController
         index = (index + 1) % actions.Length;
         currentAction = actions[index];
         setIconBehaviour.SetIcon(currentAction.Icon);
+
+        actionPointsController.Notify();
     }
 
     public ICommand GetCurrentCommand()
@@ -37,5 +45,7 @@ public class PlayerActionController : MonoBehaviour, IActionController
         currentAction = null;
         index = 0;
         setIconBehaviour.SetIcon(defaultIcon);
+
+        actionPointsController.Notify();
     }
 }

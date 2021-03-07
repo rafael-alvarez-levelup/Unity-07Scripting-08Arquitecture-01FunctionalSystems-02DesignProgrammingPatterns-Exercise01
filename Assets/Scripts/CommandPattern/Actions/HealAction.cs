@@ -2,6 +2,6 @@
 {
     private void Awake()
     {
-        Command = new HealCommand(GetComponent<IHeal>());
+        Command = new HealCommand(GetComponentInParent<IHeal>());
     }
 }

@@ -2,6 +2,6 @@
 {
     private void Awake()
     {
-        Command = new AttackCommand(GetComponent<IAttack>());
+        Command = new AttackCommand(GetComponentInParent<IAttack>());
     }
 }
